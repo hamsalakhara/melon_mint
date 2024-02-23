@@ -43,6 +43,11 @@
                             {{ Session::get('message') }}
                         </div>
                         @endif
+                        @if (Session::has('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ Session::get('error') }}
+                        </div>
+                        @endif
                         <!-- <h4>Hello! let's get started</h4> -->
                         <form action="{{ route('forget.password.post') }}" method="POST">
                             @csrf
@@ -53,7 +58,6 @@
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <div class="mt-3">
                                 <button type="submit"
                                     class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">

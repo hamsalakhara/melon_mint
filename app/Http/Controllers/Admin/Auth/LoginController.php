@@ -19,13 +19,10 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         $credentials = $request->only('email', 'password');
-       // if (Auth::guard('admin')->attempt($credentials)) {
-        if (Auth::attempt($credentials)) {
-            dd('hello');
+        if (Auth::guard('admin')->attempt($credentials)) {
             // Authentication passed
             return redirect()->intended('dashboard');
         }
-
         // Authentication failed
         return redirect()->back()->withInput($request->only('email'));
     }

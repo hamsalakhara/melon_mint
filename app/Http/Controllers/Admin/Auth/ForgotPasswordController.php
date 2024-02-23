@@ -35,13 +35,18 @@ class ForgotPasswordController extends Controller
           ]);
   
           $token = Str::random(64);
-  
-          DB::table('password_reset_tokens')->insert([
-              'email' => $request->email, 
-              'token' => $token, 
-              'created_at' => Carbon::now()
-            ]);
-  
+          // Check if the email already exists in the password_reset_tokens table
+        if (DB::table('password_reset_tokens')->where('email', $request->input('email'))->exists()) {
+            // Email already exists, show custom error message
+            return back()->with('error',  'A password reset request has already been sent for this email address.');
+        }else{
+          
+              DB::table('password_reset_tokens')->insert([
+                  'email' => $request->email, 
+                  'token' => $token, 
+                  'created_at' => Carbon::now()
+                ]);
+        }
           Mail::send('email.forgotPassword', ['token' => $token], function($message) use($request){
               $message->to($request->email);
               $message->subject('Reset Password');
@@ -57,7 +62,6 @@ class ForgotPasswordController extends Controller
       public function showResetPassword($token) { 
          return view('admin.auth.forgetPasswordLink', ['token' => $token]);
       }
-  
       /**
        * Write code on Method
        *
@@ -81,7 +85,6 @@ class ForgotPasswordController extends Controller
           if(!$updatePassword){
               return back()->withInput()->with('error', 'Invalid token!');
           }
-  
           $user = Admin::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
  
