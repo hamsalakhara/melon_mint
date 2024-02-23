@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Creaters\CreaterController;
-
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +19,12 @@ use App\Http\Controllers\Admin\Creaters\CreaterController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPassword'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPassword'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPassword'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPassword'])->name('reset.password.post');
 
+Route::get('showLoginForm',[LoginController::class,'showLoginForm'])->name('showLoginForm');
+Route::post('login',[LoginController::class,'login'])->name('login');
+Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::get('showCreater',[CreaterController::class,'showCreater'])->name('showCreater');
