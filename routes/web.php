@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\Creaters\CreaterController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\Creater\Auth\LoginController as AA;
+use App\Http\Controllers\creater\CreaterForgotPasswordController as CreaterFP;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +31,16 @@ Route::get('showLoginForm',[LoginController::class,'showLoginForm'])->name('show
 Route::post('login',[LoginController::class,'login'])->name('login');
 Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::get('showCreater',[CreaterController::class,'showCreater'])->name('showCreater');
+
+Route::get('createrLoginForm',[AA::class,'createrLoginForm'])->name('createrLoginForm');
+Route::post('checkcreaterlogin',[AA::class,'checkcreaterlogin'])->name('checkcreaterlogin');
+
+
+Route::get('forget-password', [CreaterFP::class, 'showForgetPassword'])->name('forget.password.get');
+Route::post('forget-password', [CreaterFP::class, 'submitForgetPassword'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [CreaterFP::class, 'showResetPassword'])->name('reset.password.get');
+Route::post('reset-password', [CreaterFP::class, 'submitResetPassword'])->name('reset.password.post');
+
+
+
+
