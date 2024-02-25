@@ -23,7 +23,8 @@ class LoginController extends Controller
         $credentials = $request->only('email','password');
         if (Auth::guard('creater')->attempt($credentials)) {
             // Authentication passed
-            return redirect()->intended('creater.dashboard.dashboard');
+            return redirect()->intended('createdashboard');
+           // return view('creater.dashboard.createrdashboard');
         }
         // // Authentication failed
         return redirect()->back()->withInput($request->only('email'));

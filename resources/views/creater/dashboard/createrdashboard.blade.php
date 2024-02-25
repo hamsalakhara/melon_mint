@@ -3,7 +3,8 @@
  <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">
-              <h2 class="text-center">ADMIN DASHBOARD</h2>
+              <h2 class="text-center">CREATER DASHBOARD</h2>
+
                 <div class="card-body">
                   <div id="detailedReports" class="carousel slide detailed-report-carousel position-static pt-2" data-ride="carousel">
                     <div class="carousel-inner">
@@ -11,6 +12,7 @@
                         <div class="row">
                           <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                             <div class="ml-xl-4 mt-3">
+                              
                             <p class="card-title">Detailed Reports</p>
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>

@@ -5,8 +5,9 @@ use App\Http\Controllers\Admin\Creaters\CreaterController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\creater\Auth\CreaterForgotPasswordController as CreaterFP;
 use App\Http\Controllers\Creater\Auth\LoginController as AA;
-use App\Http\Controllers\creater\CreaterForgotPasswordController as CreaterFP;
+use App\Http\Controllers\creater\dashboard\CreaterDashboardController as CreateDC;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::get('forget-password', [CreaterFP::class, 'showForgetPassword'])->name('f
 Route::post('forget-password', [CreaterFP::class, 'submitForgetPassword'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [CreaterFP::class, 'showResetPassword'])->name('reset.password.get');
 Route::post('reset-password', [CreaterFP::class, 'submitResetPassword'])->name('reset.password.post');
+Route::get('createdashboard',[CreateDC::class,'createdashboard'])->name('createdashboard');
+
 
 
 
