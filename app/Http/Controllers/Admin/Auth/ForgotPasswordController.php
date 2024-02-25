@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB; 
 use Carbon\Carbon; 
 use App\Models\Admin; 
-use Mail; 
+use Mail;    
 use Hash;
 use Illuminate\Support\Str;
   

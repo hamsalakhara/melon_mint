@@ -37,11 +37,11 @@ Route::get('createrLoginForm',[AA::class,'createrLoginForm'])->name('createrLogi
 Route::post('checkcreaterlogin',[AA::class,'checkcreaterlogin'])->name('checkcreaterlogin');
 
 
-Route::get('forget-password', [CreaterFP::class, 'showForgetPassword'])->name('forget.password.get');
+/*Route::get('forget-password', [CreaterFP::class, 'showForgetPassword'])->name('forget.password.get');
 Route::post('forget-password', [CreaterFP::class, 'submitForgetPassword'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [CreaterFP::class, 'showResetPassword'])->name('reset.password.get');
 Route::post('reset-password', [CreaterFP::class, 'submitResetPassword'])->name('reset.password.post');
-Route::get('createdashboard',[CreateDC::class,'createdashboard'])->name('createdashboard');
+Route::get('createdashboard',[CreateDC::class,'createdashboard'])->name('createdashboard');*/
 
 
 
