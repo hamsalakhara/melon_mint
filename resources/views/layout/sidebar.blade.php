@@ -1,42 +1,28 @@
-<style>
-    .sidebar .nav.sub-menu {
-        background-color:#ffffff;
-        
-    }
-    .sidebar .nav.sub-menu .nav-item .nav-link.active {
-    color: #0a0909;}
-
-    .sidebar .nav.sub-menu .nav-item .nav-link{
-        color: #060606;
-
-    }
-    
-</style>
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar" >
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('admindashboard')}}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="icon-layout menu-icon"></i>
-                <span class="menu-title">Creater Management</span>
-                <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{ route('showCreater')}}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Craeters - List</span>
             </a>
         </li>
-        <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('showCreater')}}">List</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Add</a>
-                </li>
-            </ul>
-        </div>
+        {{-- <li class="nav-item">
+            <a class="nav-link" href="{{ route('showUsers')}}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Users - List</span>
+            </a>
+        </li> --}}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('showAssets')}}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Assets - List</span>
+            </a>
+        </li>
     </ul>
 </nav>

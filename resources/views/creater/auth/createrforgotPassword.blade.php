@@ -15,10 +15,8 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
-
+    <link rel="shortcut icon" href="{{ asset('assets/images/mlogo.jfif') }}" />
 </head>
-
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -29,12 +27,13 @@
                             <div class="row">
                                 <div class="col-sm-2">
                                     <div class="brand-logo">
-                                        <img src="{{ asset('assets/images/whatsappmini.svg')}}" alt="logo" style="width: 31px;" />
+                                        <img src="{{ asset('assets/images/download.jfif')}}" alt="logo" style="width: 31px;" />
                                     </div>
                                 </div>
                                 <div class="col-sm-10">
+
                                     <div class="brand-logo">
-                                        <h3><b>Forgot Password</b></h3>
+                                         <h3><b>Forgot Password</b></h3>
                                     </div>
                                 </div>
                             </div>
@@ -48,8 +47,8 @@
                             {{ Session::get('error') }}
                         </div>
                         @endif
-                        <!-- <h4>Hello! let's get started</h4> -->
-                        <form action="{{ route('forget.password.post') }}" method="POST">
+                  <!-- <h4>Hello! let's get started</h4> -->
+                        <form action="{{ route('submitForgetPassword') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control form-control-lg"

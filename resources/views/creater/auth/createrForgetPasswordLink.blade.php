@@ -15,10 +15,8 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
-
+    <link rel="shortcut icon" href="{{ asset('assets/images/mlogo.jfif') }}" />
 </head>
-
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -44,7 +42,8 @@
                             </div>
                             @endif
                             <!-- <h4>Hello! let's get started</h4> -->
-                            <form action="{{ route('reset.password.post') }}" method="POST">
+                            <!-- <h4>Hello! let's get started</h4> -->
+                            <form action="{{ route('submitResetPassword') }}" method="POST">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="form-group">

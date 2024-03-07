@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Melonmint Creater</title>
+  <title>Melon-Mint</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}">
@@ -17,7 +17,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('assets/images/mlogo.jfif') }}" />
 
 </head>
 
@@ -28,12 +28,12 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+              <div class="brand-logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{{ asset('assets/images/melon-mint.svg') }}" alt="logo">
               </div>
-                
-              <h2 class="text-center mt-4 font-weight-light">Creater Login</h2>
-              <h6 class=" text-center mt-4 font-weight-light">Sign in to continue.</h6>
+              <!-- <h4>Hello! let's get started</h4> -->
+              <h5 class="font-weight-light">Creaters Sign in to continue.</h5> 
+
               <form class="pt-3" method="post" action="{{ route('checkcreaterlogin')}}">
                  @csrf
                 <div class="form-group">
@@ -48,7 +48,7 @@
                   ">SIGN IN</button>
                 </div>
                <div class="text-center mt-4 font-weight-light">
-                  <a href="{{ route('forget.password.get') }}" class="text-primary">Forgot password?
+                  <a href="{{ route('showForgetPassword') }}" class="text-primary">Forgot password?
                   </a>
                 </div>
               </form>

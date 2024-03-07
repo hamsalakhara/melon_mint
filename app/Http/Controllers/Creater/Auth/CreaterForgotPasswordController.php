@@ -26,22 +26,21 @@ class CreaterForgotPasswordController extends Controller
         $request->validate([
             'email' => 'required|email|exists:Creater',
         ]);
-
         $token = Str::random(64);
         // Check if the email already exists in the password_reset_tokens table
-      if (DB::table('password_reset_tokens')->where('email', $request->input('email'))->exists()) {
+      if (DB::table('creater_password_reset_tokens')->where('email', $request->input('email'))->exists()) {
           // Email already exists, show custom error message
           return back()->with('error',  'A password reset request has already been sent for this email address.');
       }else{
         
-            DB::table('password_reset_tokens')->insert([
+            DB::table('creater_password_reset_tokens')->insert([
                 'email' => $request->email, 
                 'token' => $token, 
                 'created_at' => Carbon::now()
               ]);
       }
 
-        Mail::send('email.forgotPassword', ['token' => $token], function($message) use($request){
+        Mail::send('email.createrforgotPassword', ['token' => $token], function($message) use($request){
             $message->to($request->email);
             $message->subject('Reset Password');
         });
@@ -55,14 +54,13 @@ class CreaterForgotPasswordController extends Controller
      */
 
      public function showResetPassword($token) { 
-      return view('creater.auth.forgetPasswordLink', ['token' => $token]);
+      return view('creater.auth.createrForgetPasswordLink', ['token' => $token]);
    }
    /**
     * Write code on Method
     *
     * @return response()
     */
-
     public function submitResetPassword(Request $request)
     {
         $request->validate([
@@ -71,7 +69,7 @@ class CreaterForgotPasswordController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        $updatePassword = DB::table('password_reset_tokens')
+        $updatePassword = DB::table('creater_password_reset_tokens')
                             ->where([
                               'email' => $request->email, 
                               'token' => $request->token
@@ -84,7 +82,7 @@ class CreaterForgotPasswordController extends Controller
         $user = Creater::WHERE('email', $request->email)
                     ->update(['password' => Hash::make($request->password)]);
 
-        DB::table('password_reset_tokens')->where(['email'=> $request->email])->delete();
+        DB::table('creater_password_reset_tokens')->where(['email'=> $request->email])->delete();
 
         return redirect('/createrLoginForm')->with('message', 'Your password has been changed!');
     }

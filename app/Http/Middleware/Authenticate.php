@@ -12,6 +12,11 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        if ($this->auth->guard('admin')->check()) {
+            // If authenticated, redirect to the Telegram route
+            return route('showCreater'); 
+        }
+        // If not authenticated, redirect to the login route
+        return route('showLoginForm'); 
     }
 }

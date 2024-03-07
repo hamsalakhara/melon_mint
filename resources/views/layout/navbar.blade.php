@@ -14,8 +14,10 @@
             <li class="nav-item nav-search d-none d-lg-block"></li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item"><a class="nav-link" href="#"><b style="color:#095409;">Profile</b></a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><b style="color:#095409;">Logout</b></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('showProfile',['id' => auth()->id()]) }}"><b style="color:#095409;">Profile</b></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"><b style="color:#095409;">Logout</b></a></li>
+            
+
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
             data-toggle="offcanvas">
